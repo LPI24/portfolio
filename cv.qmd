@@ -1,0 +1,85 @@
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+    page-layout: article
+---
+
+## Professional Experience
+
+### **Working Student – Project Management** | Dometa, Dresden
+*Oct 2024 – Present*
+
+* **Process Automation:** Developed API scripts to automate daily operational tasks, reducing manual effort by streamlining sensor data workflows.
+* **Data Visualization:** Built real-time Thingsboard dashboards for building sensor data (heat/water meters...), enabling data-driven decision-making for the technical management.
+* **Coordination:** Assisting the Technical Director in project steering and cross-departmental coordination.
+
+### **Logistics Planner** | Brunel (Project at Vitesco Technologies), Dresden
+*May 2023 – May 2024*
+
+* **Strategic Planning:** Managed logistics and supply chain planning for a new product line in the field of hydrolysis.
+* **Operational Design:** Engineered material stream layouts and developed specialized packaging concepts for industrial production.
+
+### **Sea Freight Pricing & Customer Service Expert** | Kuehne + Nagel, Zurich
+*Mar 2022 – Oct 2022*
+
+* **Analytics & Tooling:** Developed custom **Excel-based tools** to streamline pricing and operational workflows.
+* **Pricing Strategy:** Calculated complex spot and tender enquiries, ensuring competitive positioning in the sea freight import market.
+* **Key Account Management:** Managed high-level implementations and provided tailored supply chain solutions for key clients.
+
+### **Intern – Project Global Warehouse** | Syntegon, Beringen
+*Aug 2021 – Feb 2022*
+
+* **Performance Tracking:** Created **KPI dashboards** to monitor warehouse efficiency and support global warehouse expansion projects.
+* **Warehouse Management:** Supervised European warehouse operations and facilitated communication between customer care and operations.
+
+---
+
+## Education
+
+### **Diploma in Business Informatics** | TU Dresden
+*Oct 2024 – Present*
+
+* **Specialization:** Machine Learning and Data Science.
+* **Key Coursework:** Database Fundamentals, Business Engineering, Computer Science.
+
+### **Bachelor of Science Transport Economics** | TU Dresden
+*2017 - 2021*
+
+* **Bachelor Thesis:** "Analysis of Eurasian Rail and Sea Freight Corridors" – A comparative study of strategic transport routes.
+* **Specialization in Quantitative Methods:** Advanced coursework in **Traffic Econometrics** and **Traffic Statistics**, focusing on data-driven modeling of transport flows.
+* **Logistics Management:** Deep dive into Distribution, Production Logistics, and the Strategic Management of Traffic & Logistic Companies.
+
+---
+
+## Technical Skills & Languages
+
+| Category | Competencies |
+| :--- | :--- |
+| **Programming & Data** | Python, R, SQL, API Programming |
+| **Data Visualization** | Grafana, Power BI, Tableau, Thingsboard |
+| **Business & ERP** | SAP, Excel & VBA, Open Office |
+| **Languages** | English (Business Fluent), German (Native), Spanish (Intermediate) |
+
+---
+
+## Projects
+
+* **Home Automation Dashboard:** Integrated diverse IoT sensors via APIs into a custom-built Grafana monitoring system.
+
+---
+
+
+## Volunteering & Personal Interests (Click to expand)
+
+#### **Volunteering**
+
+* **Youth Table Tennis Coach** | TTC Elbe Dresden <br>*2024 – Present*
+    * Organized weekly training sessions and coordinated youth development programs.
+
+#### **Interests**
+
+* **Technology** – Developing and maintaining a private home server and IoT network including Data visualization.
+* **Sports** – Passionate table tennis player and cyclist.
+* **Culture** – Enthusiastic about traveling and exploring new languages and cultures.

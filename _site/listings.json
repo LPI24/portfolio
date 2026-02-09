@@ -1,0 +1,15 @@
+[
+  {
+    "listing": "/projects/index.html",
+    "items": [
+      "/projects/home-dashboard-grafana/index.html"
+    ]
+  },
+  {
+    "listing": "/blog/index.html",
+    "items": [
+      "/blog/posts/2026-02-grafana-homelab/index.html",
+      "/blog/posts/2026-01-grafana-homelab/index.html"
+    ]
+  }
+]

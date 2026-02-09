@@ -1,0 +1,14 @@
+---
+title: "Projects"
+subtitle: "A collection of my technical work in Data Analysis, IoT, and Visualization."
+listing:
+  contents: "."
+  type: grid
+  sort: "date desc"
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  fields: [image, date, title, description, categories]
+---
+
+Welcome to my project portfolio. Here you'll find a mix of data science projects and personal technical experiments.

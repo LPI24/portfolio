@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "About me"
+  # Falls du ein kleines Icon (32x32px) hast, aktiviere die nächste Zeile:
+  # favicon: pictures/favicon.png
+
+  # Suchfunktion oben in der Navbar aktivieren
+  search: true
+
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: cv.qmd
+        text: CV
+      - href: blog/index.qmd
+        text: Blog
+      - href: projects/index.qmd
+        text: Projects
+
+    right:
+      - icon: github
+        href: https://github.com/LPI24
+      - icon: linkedin
+        href: https://www.linkedin.com/in/lukas-pilz-81a99a219/
+
+  page-footer:
+    left: "© 2026 Lukas Pilz"
+    right:
+      - text: "Legal notice & Privacy policy"
+        href: legal.qmd
+
+format:
+  html:
+    include-in-header:
+      text: |
+        <meta name="robots" content="noindex">
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+    toc-title: "Content"
+    lightbox: auto
+
+# Verhindert unnötiges Re-Rendern von unveränderten Code-Files (Python/R)
+execute:
+  freeze: auto

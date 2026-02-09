@@ -1,0 +1,27 @@
+---
+title: "Lukas Pilz"
+about:
+  template: jolla
+  image: /pictures/lukas_pic.jpg
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/LPI24
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/lukas-pilz-81a99a219/
+---
+
+## Hi, I'm Lukas!
+
+I am a **Business Informatics** student at **TU Dresden**, specializing in **Machine Learning**. Currently, I work as a **Working Student at Dometa**, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.
+
+With a professional background in **Logistics Planning**, I combine deep domain expertise with modern data science to build efficient, automated solutions.
+
+**Data Science** – Specialized in predictive modeling and ML (Study focus).<br>
+**Logistics Expertise** – Deep domain knowledge from my previous career path.<br>
+**Automation** – Passionate about Smart Home, APIs, and Python/R scripting.<br>
+**Visualisation** – Passionate in creating real-time dashboards with Grafana or Thingsboard.
+
+---
+*Check out my **Projects** to see my work in action or view my **CV** for the full story.*
