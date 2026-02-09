@@ -1,0 +1,7 @@
+.about-image {
+  object-fit: cover;
+  /* 50% ist die Mitte (links/rechts),
+     0% schiebt den Bildinhalt ganz nach oben (man sieht die Haare),
+     100% schiebt ihn ganz nach unten */
+  object-position: 50% 20%;
+}

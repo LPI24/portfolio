@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Welcome to my project portfolio. Here you’ll find a mix of data science projects and personal technical experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Home Monitoring Dashboard\n\n\n\nGrafana\n\nIoT\n\nDashboards\n\nHome Automation\n\n\n\nReal-time visualization of home environment data using Grafana and a time-series database.\n\n\n\nFeb 9, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "legal.html",
+    "href": "legal.html",
+    "title": "Legal Notice & Privacy Policy",
+    "section": "",
+    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
+  },
+  {
+    "objectID": "legal.html#legal-notice-impressum",
+    "href": "legal.html#legal-notice-impressum",
+    "title": "Legal Notice & Privacy Policy",
+    "section": "",
+    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
+  },
+  {
+    "objectID": "legal.html#privacy-policy-datenschutzerklärung",
+    "href": "legal.html#privacy-policy-datenschutzerklärung",
+    "title": "Legal Notice & Privacy Policy",
+    "section": "Privacy Policy (Datenschutzerklärung)",
+    "text": "Privacy Policy (Datenschutzerklärung)\n\n1. General Information\nAs the operator of this website, I take the protection of your personal data very seriously. I treat your personal data confidentially and in accordance with the statutory data protection regulations (GDPR) and this privacy policy.\n\n\n2. Data Collection on this Website\nThis website is hosted by z.B. GitHub Pages. When you visit this site, the hoster automatically collects and stores information in so-called “Server Log Files”, which your browser automatically transmits:\n\nBrowser type and version\nOperating system used\nReferrer URL\nHostname of the accessing computer\nTime of the server request\nIP address\n\nThis data is not combined with other data sources. The basis for data processing is Art. 6 Para. 1 lit. f GDPR, which allows the processing of data for the technically error-free presentation and optimization of the website.\n\n\n3. Cookies and Tracking\nThis website does not use tracking cookies (like Google Analytics) or any other personal tracking mechanisms. It is a static website designed for informational purposes only.\n\n\n4. Your Rights\nYou have the right at any time to receive information free of charge about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction, blocking, or deletion of this data.\nIf you have any questions regarding data protection, you can contact me at the email address provided in the Legal Notice.\n\nLast updated: February 2026"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Oct 2024 – Present\n\nProcess Automation: Developed API scripts to automate daily operational tasks, reducing manual effort by streamlining sensor data workflows.\nData Visualization: Built real-time Thingsboard dashboards for building sensor data (heat/water meters…), enabling data-driven decision-making for the technical management.\nCoordination: Assisting the Technical Director in project steering and cross-departmental coordination.\n\n\n\n\nMay 2023 – May 2024\n\nStrategic Planning: Managed logistics and supply chain planning for a new product line in the field of hydrolysis.\nOperational Design: Engineered material stream layouts and developed specialized packaging concepts for industrial production.\n\n\n\n\nMar 2022 – Oct 2022\n\nAnalytics & Tooling: Developed custom Excel-based tools to streamline pricing and operational workflows.\nPricing Strategy: Calculated complex spot and tender enquiries, ensuring competitive positioning in the sea freight import market.\nKey Account Management: Managed high-level implementations and provided tailored supply chain solutions for key clients.\n\n\n\n\nAug 2021 – Feb 2022\n\nPerformance Tracking: Created KPI dashboards to monitor warehouse efficiency and support global warehouse expansion projects.\nWarehouse Management: Supervised European warehouse operations and facilitated communication between customer care and operations."
+  },
+  {
+    "objectID": "cv.html#professional-experience",
+    "href": "cv.html#professional-experience",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Oct 2024 – Present\n\nProcess Automation: Developed API scripts to automate daily operational tasks, reducing manual effort by streamlining sensor data workflows.\nData Visualization: Built real-time Thingsboard dashboards for building sensor data (heat/water meters…), enabling data-driven decision-making for the technical management.\nCoordination: Assisting the Technical Director in project steering and cross-departmental coordination.\n\n\n\n\nMay 2023 – May 2024\n\nStrategic Planning: Managed logistics and supply chain planning for a new product line in the field of hydrolysis.\nOperational Design: Engineered material stream layouts and developed specialized packaging concepts for industrial production.\n\n\n\n\nMar 2022 – Oct 2022\n\nAnalytics & Tooling: Developed custom Excel-based tools to streamline pricing and operational workflows.\nPricing Strategy: Calculated complex spot and tender enquiries, ensuring competitive positioning in the sea freight import market.\nKey Account Management: Managed high-level implementations and provided tailored supply chain solutions for key clients.\n\n\n\n\nAug 2021 – Feb 2022\n\nPerformance Tracking: Created KPI dashboards to monitor warehouse efficiency and support global warehouse expansion projects.\nWarehouse Management: Supervised European warehouse operations and facilitated communication between customer care and operations."
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Curriculum Vitae",
+    "section": "Education",
+    "text": "Education\n\nDiploma in Business Informatics | TU Dresden\nOct 2024 – Present\n\nSpecialization: Machine Learning and Data Science.\nKey Coursework: Database Fundamentals, Business Engineering, Computer Science.\n\n\n\nBachelor of Science Transport Economics | TU Dresden\n2017 - 2021\n\nBachelor Thesis: “Analysis of Eurasian Rail and Sea Freight Corridors” – A comparative study of strategic transport routes.\nSpecialization in Quantitative Methods: Advanced coursework in Traffic Econometrics and Traffic Statistics, focusing on data-driven modeling of transport flows.\nLogistics Management: Deep dive into Distribution, Production Logistics, and the Strategic Management of Traffic & Logistic Companies."
+  },
+  {
+    "objectID": "cv.html#technical-skills-languages",
+    "href": "cv.html#technical-skills-languages",
+    "title": "Curriculum Vitae",
+    "section": "Technical Skills & Languages",
+    "text": "Technical Skills & Languages\n\n\n\n\n\n\n\nCategory\nCompetencies\n\n\n\n\nProgramming & Data\nPython, R, SQL, API Programming\n\n\nData Visualization\nGrafana, Power BI, Tableau, Thingsboard\n\n\nBusiness & ERP\nSAP, Excel & VBA, Open Office\n\n\nLanguages\nEnglish (Business Fluent), German (Native), Spanish (Intermediate)"
+  },
+  {
+    "objectID": "cv.html#projects",
+    "href": "cv.html#projects",
+    "title": "Curriculum Vitae",
+    "section": "Projects",
+    "text": "Projects\n\nHome Automation Dashboard: Integrated diverse IoT sensors via APIs into a custom-built Grafana monitoring system."
+  },
+  {
+    "objectID": "cv.html#volunteering-personal-interests-click-to-expand",
+    "href": "cv.html#volunteering-personal-interests-click-to-expand",
+    "title": "Curriculum Vitae",
+    "section": "Volunteering & Personal Interests (Click to expand)",
+    "text": "Volunteering & Personal Interests (Click to expand)\n\nVolunteering\n\nYouth Table Tennis Coach | TTC Elbe Dresden 2024 – Present\n\nOrganized weekly training sessions and coordinated youth development programs.\n\n\n\n\nInterests\n\nTechnology – Developing and maintaining a private home server and IoT network including Data visualization.\nSports – Passionate table tennis player and cyclist.\nCulture – Enthusiastic about traveling and exploring new languages and cultures."
+  },
+  {
+    "objectID": "blog/posts/2026-01-grafana-homelab/index.html",
+    "href": "blog/posts/2026-01-grafana-homelab/index.html",
+    "title": "Building a Private Home Dashboard with Grafana",
+    "section": "",
+    "text": "I built a custom home-server environment to monitor my living space in real-time. To achieve this, I connected several temperature and humidity sensors to ESP32 controllers distributed throughout my flat. Additionally, I installed door and window sensors connected via a SONOFF Zigbee dongle.\nAll sensors transmit their data to a central bridge, which forwards the information into an InfluxDB time-series database.\n\nThe Setup\nMy home automation system collects data from various sensors (temperature, energy consumption, network traffic). The core stack consists of:\n\nData Sources: Diverse IoT sensors (ESP32-based climate sensors and SONOFF door/window sensors).\nCommunication: MQTT and an InfluxDB bridge running on a Raspberry Pi.\nDatabase: InfluxDB for efficient time-series storage.\nVisualization: Grafana for real-time monitoring and historical analysis.\n\n\n\nKey Insights\nThis dashboard allows me to track environmental changes and room activity precisely. It was an excellent project to practice MQTT protocols, API integration, and data pipeline management before the information reaches the final dashboard.\n\n\n\nGrafana Dashboard"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Here I share insights into my projects:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nExtend Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nPublic Transport Extension for my Grafana Home Dashboard\n\n\n\n\n\nFeb 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Private Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nHow I track my home sensor data using real-time visualization.\n\n\n\n\n\nJan 12, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/2026-02-grafana-homelab/index.html",
+    "href": "blog/posts/2026-02-grafana-homelab/index.html",
+    "title": "Extend Home Dashboard with Grafana",
+    "section": "",
+    "text": "To make my Home Dashboard even more practical for daily life, I decided to integrate real-time mobility data. Living in Dresden, I wanted to see exactly when the next tram or bike is available without opening multiple apps.\n\nIntegrating Local Transport (DVB)\nI extended the dashboard with a live overview of upcoming departures from stations near my flat.\n\nThe Tech: I used the DVB.py Python package to interface with the VVO (Verkehrsverbund Oberelbe) data.\nThe Process: A script fetches the live departure times, filters for relevant lines, and pushes the data into my InfluxDB.\n\n\n\n\nReal Time Public Transport Overview\n\n\n\n\nBike Sharing Integration (Nextbike)\nIn addition to public transport, I implemented a tracking feature for Nextbike (the local bike-sharing provider).\n\nAPI Utilization: By querying the Nextbike API, I can now see the number of available bikes and their exact locations in my immediate vicinity.\nBenefit: This allows for a seamless decision-making process in the morning: Tram, bike, or walk?\n\n\n\n\nReal Time Bike Sharing Overview\n\n\n\n\nTechnical Takeaway\nThis extension was a great exercise in:\n\nWorking with external APIs and handling JSON data.\nPython scripting for automated data retrieval.\nData transformation: Converting live API responses into time-series formats suitable for Grafana."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lukas Pilz",
+    "section": "",
+    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine deep domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
+  },
+  {
+    "objectID": "index.html#hi-im-lukas",
+    "href": "index.html#hi-im-lukas",
+    "title": "Lukas Pilz",
+    "section": "",
+    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine deep domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
+  },
+  {
+    "objectID": "projects/home-dashboard-grafana/index.html",
+    "href": "projects/home-dashboard-grafana/index.html",
+    "title": "Smart Home Monitoring Dashboard",
+    "section": "",
+    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
+  },
+  {
+    "objectID": "projects/home-dashboard-grafana/index.html#project-overview",
+    "href": "projects/home-dashboard-grafana/index.html#project-overview",
+    "title": "Smart Home Monitoring Dashboard",
+    "section": "",
+    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
+  }
+]
