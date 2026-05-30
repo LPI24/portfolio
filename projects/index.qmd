@@ -2,7 +2,8 @@
 title: "Projects"
 subtitle: "A collection of my technical work in Data Analysis, IoT, and Visualization."
 listing:
-  contents: .
+  contents:
+    - "*/index.qmd"
   type: grid
   sort: "date desc"
   categories: true
