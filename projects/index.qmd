@@ -2,9 +2,7 @@
 title: "Projects"
 subtitle: "A collection of my technical work in Data Analysis, IoT, and Visualization."
 listing:
-  contents:
-    - "home-dashboard-grafana/index.qmd"
-    - "home-solar-dashboard-grafana/index.qmd"
+  contents: .
   type: grid
   sort: "date desc"
   categories: true
