@@ -33,3 +33,8 @@ This extension was a great exercise in:
 * **Working with external APIs** and handling JSON data.
 * **Python scripting** for automated data retrieval.
 * **Data transformation:** Converting live API responses into time-series formats suitable for Grafana.
+
+<div style="margin-top: 2rem;">
+  <a href="https://github.com/LPI24/SmartHomeDashboard" class="btn btn-outline-primary" role="button" target="_blank">
+    <i class="bi bi-github"></i> View Project on GitHub
+  </a>

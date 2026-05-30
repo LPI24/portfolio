@@ -1,0 +1,30 @@
+---
+title: "Smart Notifications: Developing a Telegram IoT Bot"
+description: "Using the Telegram Bot API to receive real-time alerts from my Home Server."
+date: "2026-02-11"
+categories: [Python, API, Automation]
+image: sc_shot_telegrambot_sensor.png
+---
+
+Monitoring dashboards is great, but receiving active alerts is better. I developed a **Python-based Telegram Bot** that acts as a bridge between my home sensors and my smartphone.
+
+### Why a Telegram Bot?
+Unlike traditional dashboards, a bot can proactively reach out when certain conditions are met. I used the `python-telegram-bot` library to implement this logic.
+
+![Telegram Door Sensor Alarm Bot](sc_shot_telegrambot_sensor.png){width=200px fig-align="left"}
+
+### Core Features
+* **Real-time Alerts:** The bot sends a message if bot is activated (/on) and the window or door is opened.
+* **Status Queries:** You can retrieve the status of the window and/or door (/status)
+
+### The Technical Stack
+* **Language:** Python
+* **API:** Telegram Bot API (via `python-telegram-bot`)
+* **Data Connection:** MQTT via Zigbee Dongle
+
+> This project demonstrates how to build functional interfaces for data systems, moving from passive monitoring to active automation.
+
+<div style="margin-top: 2rem;">
+  <a href="https://github.com/LPI24/Telegram_Door_Sensor_Alarm_Bot" class="btn btn-outline-primary" role="button" target="_blank">
+    <i class="bi bi-github"></i> View Project on GitHub
+  </a>
