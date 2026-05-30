@@ -4,17 +4,17 @@ date: "2026-05-30"
 description: "Real-time data acquisition and visualization pipeline for a photovoltaic solar system and EV wallbox using Modbus, MQTT, InfluxDB, and Grafana."
 author: "Lukas Pilz"
 image: solar-dashboard-demo.gif
-categories: [Grafana, InfluxDB, IoT, Solar, MQTT, Modbus]
+categories: [Grafana, InfluxDB, IoT, Solar, MQTT, Modbus, Tailscale]
 ---
 
 ## Project Overview
 
-This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.
+This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents' photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.
 
 ### Key Features
 * **Multi-Protocol Data Ingestion:** Real-time ingestion of solar inverter metrics via Modbus TCP/RTU and wallbox states via MQTT.
+* **Secure Mesh Routing:** All cross-device data traffic between the protocol gateway and the database is fully encrypted and routed over a secure Tailscale network.
 * **Time-Series Storage:** High-frequency data logging into InfluxDB, structured for rapid querying and long-term analysis.
-* **Advanced Visualizations:** Live tracking of current power generation, household consumption, grid feed-in, and charging currents.
 * **UI Refresh Optimization:** Fine-tuned panel-specific refresh rates to separate high-frequency live data from slow-moving aggregate metrics.
 
 ### The Tech Stack & Architecture
@@ -45,4 +45,4 @@ The Pi 2 securely pushes data straight to the Pi 4's encrypted Tailscale IP over
 ### 3. Frontend & Dashboard Optimization (Grafana)
 Grafana sits on top of InfluxDB to render the visual panels. To prevent unnecessary browser rendering overhead and eliminate visual flickering, the UI is optimized using selective refresh intervals:
 * **Live Panels:** Instantaneous metrics like current consumption or PV generation update on a rapid cycle.
-* **Aggregate Value Cards:** Träger values like total daily yield are decoupled using `now/d` overrides and increased `Min interval` thresholds, completely hiding unnecessary loading indicators.
+* **Aggregate Value Cards:** Slower metrics like total daily yield are decoupled using `now/d` overrides and increased `Min interval` thresholds, completely hiding unnecessary loading indicators.

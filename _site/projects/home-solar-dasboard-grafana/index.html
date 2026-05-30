@@ -336,6 +336,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="quarto-category">Solar</div>
     <div class="quarto-category">MQTT</div>
     <div class="quarto-category">Modbus</div>
+    <div class="quarto-category">Tailscale</div>
   </div>
   </div>
 
@@ -372,13 +373,13 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="project-overview" class="level2">
 <h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.</p>
+<p>This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents’ photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.</p>
 <section id="key-features" class="level3">
 <h3 class="anchored" data-anchor-id="key-features">Key Features</h3>
 <ul>
 <li><strong>Multi-Protocol Data Ingestion:</strong> Real-time ingestion of solar inverter metrics via Modbus TCP/RTU and wallbox states via MQTT.</li>
+<li><strong>Secure Mesh Routing:</strong> All cross-device data traffic between the protocol gateway and the database is fully encrypted and routed over a secure Tailscale network.</li>
 <li><strong>Time-Series Storage:</strong> High-frequency data logging into InfluxDB, structured for rapid querying and long-term analysis.</li>
-<li><strong>Advanced Visualizations:</strong> Live tracking of current power generation, household consumption, grid feed-in, and charging currents.</li>
 <li><strong>UI Refresh Optimization:</strong> Fine-tuned panel-specific refresh rates to separate high-frequency live data from slow-moving aggregate metrics.</li>
 </ul>
 </section>
@@ -414,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="frontend-dashboard-optimization-grafana" class="level3">
 <h3 class="anchored" data-anchor-id="frontend-dashboard-optimization-grafana">3. Frontend &amp; Dashboard Optimization (Grafana)</h3>
-<p>Grafana sits on top of InfluxDB to render the visual panels. To prevent unnecessary browser rendering overhead and eliminate visual flickering, the UI is optimized using selective refresh intervals: * <strong>Live Panels:</strong> Instantaneous metrics like current consumption or PV generation update on a rapid cycle. * <strong>Aggregate Value Cards:</strong> Träger values like total daily yield are decoupled using <code>now/d</code> overrides and increased <code>Min interval</code> thresholds, completely hiding unnecessary loading indicators.</p>
+<p>Grafana sits on top of InfluxDB to render the visual panels. To prevent unnecessary browser rendering overhead and eliminate visual flickering, the UI is optimized using selective refresh intervals: * <strong>Live Panels:</strong> Instantaneous metrics like current consumption or PV generation update on a rapid cycle. * <strong>Aggregate Value Cards:</strong> Slower metrics like total daily yield are decoupled using <code>now/d</code> overrides and increased <code>Min interval</code> thresholds, completely hiding unnecessary loading indicators.</p>
 
 
 </section>
