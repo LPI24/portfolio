@@ -4,28 +4,63 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "Welcome to my project portfolio. Here you’ll find a mix of data science projects and personal technical experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Home Monitoring Dashboard\n\n\n\nGrafana\n\nIoT\n\nDashboards\n\nHome Automation\n\n\n\nReal-time visualization of home environment data using Grafana and a time-series database.\n\n\n\nFeb 9, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to my project portfolio. Here you’ll find a mix of data science projects and personal technical experiments.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSolar PV Monitoring & Data Pipeline\n\n\n\nGrafana\n\nInfluxDB\n\nIoT\n\nSolar\n\nMQTT\n\nModbus\n\nTailscale\n\n\n\nReal-time data acquisition and visualization pipeline for a photovoltaic solar system and EV wallbox using Modbus, MQTT, InfluxDB, and Grafana.\n\n\n\nMay 30, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Home Monitoring Dashboard\n\n\n\nGrafana\n\nIoT\n\nDashboards\n\nHome Automation\n\n\n\nReal-time visualization of home environment data using Grafana and a time-series database.\n\n\n\nFeb 9, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "legal.html",
-    "href": "legal.html",
-    "title": "Legal Notice & Privacy Policy",
+    "objectID": "projects/home-dashboard-grafana/index.html",
+    "href": "projects/home-dashboard-grafana/index.html",
+    "title": "Smart Home Monitoring Dashboard",
     "section": "",
-    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
+    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
   },
   {
-    "objectID": "legal.html#legal-notice-impressum",
-    "href": "legal.html#legal-notice-impressum",
-    "title": "Legal Notice & Privacy Policy",
+    "objectID": "projects/home-dashboard-grafana/index.html#project-overview",
+    "href": "projects/home-dashboard-grafana/index.html#project-overview",
+    "title": "Smart Home Monitoring Dashboard",
     "section": "",
-    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
+    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
   },
   {
-    "objectID": "legal.html#privacy-policy-datenschutzerklärung",
-    "href": "legal.html#privacy-policy-datenschutzerklärung",
-    "title": "Legal Notice & Privacy Policy",
-    "section": "Privacy Policy (Datenschutzerklärung)",
-    "text": "Privacy Policy (Datenschutzerklärung)\n\n1. General Information\nAs the operator of this website, I take the protection of your personal data very seriously. I treat your personal data confidentially and in accordance with the statutory data protection regulations (GDPR) and this privacy policy.\n\n\n2. Data Collection on this Website\nThis website is hosted by z.B. GitHub Pages. When you visit this site, the hoster automatically collects and stores information in so-called “Server Log Files”, which your browser automatically transmits:\n\nBrowser type and version\nOperating system used\nReferrer URL\nHostname of the accessing computer\nTime of the server request\nIP address\n\nThis data is not combined with other data sources. The basis for data processing is Art. 6 Para. 1 lit. f GDPR, which allows the processing of data for the technically error-free presentation and optimization of the website.\n\n\n3. Cookies and Tracking\nThis website does not use tracking cookies (like Google Analytics) or any other personal tracking mechanisms. It is a static website designed for informational purposes only.\n\n\n4. Your Rights\nYou have the right at any time to receive information free of charge about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction, blocking, or deletion of this data.\nIf you have any questions regarding data protection, you can contact me at the email address provided in the Legal Notice.\n\nLast updated: February 2026"
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "About me",
+    "section": "",
+    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
+  },
+  {
+    "objectID": "index.html#hi-im-lukas",
+    "href": "index.html#hi-im-lukas",
+    "title": "About me",
+    "section": "",
+    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
+  },
+  {
+    "objectID": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
+    "href": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
+    "title": "Smart Notifications: Developing a Telegram IoT Bot",
+    "section": "",
+    "text": "Monitoring dashboards is great, but receiving active alerts is better. I developed a Python-based Telegram Bot that acts as a bridge between my home sensors and my smartphone.\n\nWhy a Telegram Bot?\nUnlike traditional dashboards, a bot can proactively reach out when certain conditions are met. I used the python-telegram-bot library to implement this logic.\n\n\n\n\n\n\n\nTelegram Door Sensor Alarm Bot\n\n\n\n\nCore Features\n\nReal-time Alerts: The bot sends a message if bot is activated (/on) and the window or door is opened.\nStatus Queries: You can retrieve the status of the window and/or door (/status)\n\n\n\nThe Technical Stack\n\nLanguage: Python\nAPI: Telegram Bot API (via python-telegram-bot)\nData Connection: MQTT via Zigbee Dongle\n\n\nThis project demonstrates how to build functional interfaces for data systems, moving from passive monitoring to active automation.\n\n\n  View Project on GitHub"
+  },
+  {
+    "objectID": "blog/posts/2026-01-grafana-homelab/index.html",
+    "href": "blog/posts/2026-01-grafana-homelab/index.html",
+    "title": "Building a Private Home Dashboard with Grafana",
+    "section": "",
+    "text": "I built a custom home-server environment to monitor my living space in real-time. To achieve this, I connected several temperature and humidity sensors to ESP32 controllers distributed throughout my flat. Additionally, I installed door and window sensors connected via a SONOFF Zigbee dongle.\nAll sensors transmit their data to a central bridge, which forwards the information into an InfluxDB time-series database.\n\nThe Setup\nMy home automation system collects data from various sensors (temperature, energy consumption, network traffic). The core stack consists of:\n\nData Sources: Diverse IoT sensors (ESP32-based climate sensors and SONOFF door/window sensors).\nCommunication: MQTT and an InfluxDB bridge running on a Raspberry Pi.\nDatabase: InfluxDB for efficient time-series storage.\nVisualization: Grafana for real-time monitoring and historical analysis.\n\n\n\nKey Insights\nThis dashboard allows me to track environmental changes and room activity precisely. It was an excellent project to practice MQTT protocols, API integration, and data pipeline management before the information reaches the final dashboard.\n\n\n\nGrafana Dashboard"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Here I share insights into my projects:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Notifications: Developing a Telegram IoT Bot\n\n\n\nPython\n\nAPI\n\nAutomation\n\n\n\nUsing the Telegram Bot API to receive real-time alerts from my Home Server.\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nExtend Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nPublic Transport Extension for my Grafana Home Dashboard\n\n\n\n\n\nFeb 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Private Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nHow I track my home sensor data using real-time visualization.\n\n\n\n\n\nJan 12, 2025\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/posts/2026-02-grafana-homelab/index.html",
+    "href": "blog/posts/2026-02-grafana-homelab/index.html",
+    "title": "Extend Home Dashboard with Grafana",
+    "section": "",
+    "text": "To make my Home Dashboard even more practical for daily life, I decided to integrate real-time mobility data. Living in Dresden, I wanted to see exactly when the next tram or bike is available without opening multiple apps.\n\nIntegrating Local Transport (DVB)\nI extended the dashboard with a live overview of upcoming departures from stations near my flat.\n\nThe Tech: I used the DVB.py Python package to interface with the VVO (Verkehrsverbund Oberelbe) data.\nThe Process: A script fetches the live departure times, filters for relevant lines, and pushes the data into my InfluxDB.\n\n\n\n\nReal Time Public Transport Overview\n\n\n\n\nBike Sharing Integration (Nextbike)\nIn addition to public transport, I implemented a tracking feature for Nextbike (the local bike-sharing provider).\n\nAPI Utilization: By querying the Nextbike API, I can now see the number of available bikes and their exact locations in my immediate vicinity.\nBenefit: This allows for a seamless decision-making process in the morning: Tram, bike, or walk?\n\n\n\n\nReal Time Bike Sharing Overview\n\n\n\n\nTechnical Takeaway\nThis extension was a great exercise in:\n\nWorking with external APIs and handling JSON data.\nPython scripting for automated data retrieval.\nData transformation: Converting live API responses into time-series formats suitable for Grafana.\n\n\n  View Project on GitHub"
   },
   {
     "objectID": "cv.html",
@@ -70,59 +105,45 @@
     "text": "Volunteering & Personal Interests (Click to expand)\n\nVolunteering\n\nYouth Table Tennis Coach | TTC Elbe Dresden 2024 – Present\n\nOrganized weekly training sessions and coordinated youth development programs.\n\n\n\n\nInterests\n\nTechnology – Developing and maintaining a private home server and IoT network including Data visualization.\nSports – Passionate table tennis player and cyclist.\nCulture – Enthusiastic about traveling and exploring new languages and cultures."
   },
   {
-    "objectID": "blog/posts/2026-02-grafana-homelab/index.html",
-    "href": "blog/posts/2026-02-grafana-homelab/index.html",
-    "title": "Extend Home Dashboard with Grafana",
+    "objectID": "legal.html",
+    "href": "legal.html",
+    "title": "Legal Notice & Privacy Policy",
     "section": "",
-    "text": "To make my Home Dashboard even more practical for daily life, I decided to integrate real-time mobility data. Living in Dresden, I wanted to see exactly when the next tram or bike is available without opening multiple apps.\n\nIntegrating Local Transport (DVB)\nI extended the dashboard with a live overview of upcoming departures from stations near my flat.\n\nThe Tech: I used the DVB.py Python package to interface with the VVO (Verkehrsverbund Oberelbe) data.\nThe Process: A script fetches the live departure times, filters for relevant lines, and pushes the data into my InfluxDB.\n\n\n\n\nReal Time Public Transport Overview\n\n\n\n\nBike Sharing Integration (Nextbike)\nIn addition to public transport, I implemented a tracking feature for Nextbike (the local bike-sharing provider).\n\nAPI Utilization: By querying the Nextbike API, I can now see the number of available bikes and their exact locations in my immediate vicinity.\nBenefit: This allows for a seamless decision-making process in the morning: Tram, bike, or walk?\n\n\n\n\nReal Time Bike Sharing Overview\n\n\n\n\nTechnical Takeaway\nThis extension was a great exercise in:\n\nWorking with external APIs and handling JSON data.\nPython scripting for automated data retrieval.\nData transformation: Converting live API responses into time-series formats suitable for Grafana.\n\n\n  View Project on GitHub"
+    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
+    "objectID": "legal.html#legal-notice-impressum",
+    "href": "legal.html#legal-notice-impressum",
+    "title": "Legal Notice & Privacy Policy",
     "section": "",
-    "text": "Here I share insights into my projects:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Notifications: Developing a Telegram IoT Bot\n\n\n\nPython\n\nAPI\n\nAutomation\n\n\n\nUsing the Telegram Bot API to receive real-time alerts from my Home Server.\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nExtend Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nPublic Transport Extension for my Grafana Home Dashboard\n\n\n\n\n\nFeb 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Private Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nHow I track my home sensor data using real-time visualization.\n\n\n\n\n\nJan 12, 2025\n\n\n\n\n\nNo matching items"
+    "text": "Information according to § 5 TMG (German Telemedia Act):\nLukas Pilz Dresden Germany\nContact: Email: lukas.pilz@proton.me"
   },
   {
-    "objectID": "blog/posts/2026-01-grafana-homelab/index.html",
-    "href": "blog/posts/2026-01-grafana-homelab/index.html",
-    "title": "Building a Private Home Dashboard with Grafana",
-    "section": "",
-    "text": "I built a custom home-server environment to monitor my living space in real-time. To achieve this, I connected several temperature and humidity sensors to ESP32 controllers distributed throughout my flat. Additionally, I installed door and window sensors connected via a SONOFF Zigbee dongle.\nAll sensors transmit their data to a central bridge, which forwards the information into an InfluxDB time-series database.\n\nThe Setup\nMy home automation system collects data from various sensors (temperature, energy consumption, network traffic). The core stack consists of:\n\nData Sources: Diverse IoT sensors (ESP32-based climate sensors and SONOFF door/window sensors).\nCommunication: MQTT and an InfluxDB bridge running on a Raspberry Pi.\nDatabase: InfluxDB for efficient time-series storage.\nVisualization: Grafana for real-time monitoring and historical analysis.\n\n\n\nKey Insights\nThis dashboard allows me to track environmental changes and room activity precisely. It was an excellent project to practice MQTT protocols, API integration, and data pipeline management before the information reaches the final dashboard.\n\n\n\nGrafana Dashboard"
+    "objectID": "legal.html#privacy-policy-datenschutzerklärung",
+    "href": "legal.html#privacy-policy-datenschutzerklärung",
+    "title": "Legal Notice & Privacy Policy",
+    "section": "Privacy Policy (Datenschutzerklärung)",
+    "text": "Privacy Policy (Datenschutzerklärung)\n\n1. General Information\nAs the operator of this website, I take the protection of your personal data very seriously. I treat your personal data confidentially and in accordance with the statutory data protection regulations (GDPR) and this privacy policy.\n\n\n2. Data Collection on this Website\nThis website is hosted by z.B. GitHub Pages. When you visit this site, the hoster automatically collects and stores information in so-called “Server Log Files”, which your browser automatically transmits:\n\nBrowser type and version\nOperating system used\nReferrer URL\nHostname of the accessing computer\nTime of the server request\nIP address\n\nThis data is not combined with other data sources. The basis for data processing is Art. 6 Para. 1 lit. f GDPR, which allows the processing of data for the technically error-free presentation and optimization of the website.\n\n\n3. Cookies and Tracking\nThis website does not use tracking cookies (like Google Analytics) or any other personal tracking mechanisms. It is a static website designed for informational purposes only.\n\n\n4. Your Rights\nYou have the right at any time to receive information free of charge about the origin, recipient, and purpose of your stored personal data. You also have the right to request the correction, blocking, or deletion of this data.\nIf you have any questions regarding data protection, you can contact me at the email address provided in the Legal Notice.\n\nLast updated: February 2026"
   },
   {
-    "objectID": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
-    "href": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
-    "title": "Smart Notifications: Developing a Telegram IoT Bot",
+    "objectID": "projects/home-solar-dashboard-grafana/index.html",
+    "href": "projects/home-solar-dashboard-grafana/index.html",
+    "title": "Solar PV Monitoring & Data Pipeline",
     "section": "",
-    "text": "Monitoring dashboards is great, but receiving active alerts is better. I developed a Python-based Telegram Bot that acts as a bridge between my home sensors and my smartphone.\n\nWhy a Telegram Bot?\nUnlike traditional dashboards, a bot can proactively reach out when certain conditions are met. I used the python-telegram-bot library to implement this logic.\n\n\n\n\n\n\n\nTelegram Door Sensor Alarm Bot\n\n\n\n\nCore Features\n\nReal-time Alerts: The bot sends a message if bot is activated (/on) and the window or door is opened.\nStatus Queries: You can retrieve the status of the window and/or door (/status)\n\n\n\nThe Technical Stack\n\nLanguage: Python\nAPI: Telegram Bot API (via python-telegram-bot)\nData Connection: MQTT via Zigbee Dongle\n\n\nThis project demonstrates how to build functional interfaces for data systems, moving from passive monitoring to active automation.\n\n\n  View Project on GitHub"
+    "text": "This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents’ photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.\n\n\n\nMulti-Protocol Data Ingestion: Real-time ingestion of solar inverter metrics via Modbus TCP/RTU and wallbox states via MQTT.\nSecure Mesh Routing: All cross-device data traffic between the protocol gateway and the database is fully encrypted and routed over a secure Tailscale network.\nTime-Series Storage: High-frequency data logging into InfluxDB, structured for rapid querying and long-term analysis.\nUI Refresh Optimization: Fine-tuned panel-specific refresh rates to separate high-frequency live data from slow-moving aggregate metrics.\n\n\n\n\n\nData Sources: PV Inverter (Modbus) & EV Wallbox (MQTT)\nEdge Collection: Raspberry Pi 2 (Acting as the field protocol gateway)\nCentral Database: Raspberry Pi 4 running InfluxDB v2 (Time-Series)\nNetwork Overlay: Tailscale (Secure WireGuard-based overlay network)\nVisualization: Grafana (Stat panels, time-series graphs, and custom dashboard layouts)\n\n\n\n\nSolar Dashboard Demo"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "About me",
+    "objectID": "projects/home-solar-dashboard-grafana/index.html#project-overview",
+    "href": "projects/home-solar-dashboard-grafana/index.html#project-overview",
+    "title": "Solar PV Monitoring & Data Pipeline",
     "section": "",
-    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
+    "text": "This project focuses on the end-to-end data pipeline required to collect, store, and visualize live metrics from my parents’ photovoltaic (PV) solar system and EV wallbox. The goal was to build a highly responsive, localized monitoring system that aggregates industrial protocols (Modbus) and lightweight IoT messaging (MQTT) into a single centralized dashboard.\n\n\n\nMulti-Protocol Data Ingestion: Real-time ingestion of solar inverter metrics via Modbus TCP/RTU and wallbox states via MQTT.\nSecure Mesh Routing: All cross-device data traffic between the protocol gateway and the database is fully encrypted and routed over a secure Tailscale network.\nTime-Series Storage: High-frequency data logging into InfluxDB, structured for rapid querying and long-term analysis.\nUI Refresh Optimization: Fine-tuned panel-specific refresh rates to separate high-frequency live data from slow-moving aggregate metrics.\n\n\n\n\n\nData Sources: PV Inverter (Modbus) & EV Wallbox (MQTT)\nEdge Collection: Raspberry Pi 2 (Acting as the field protocol gateway)\nCentral Database: Raspberry Pi 4 running InfluxDB v2 (Time-Series)\nNetwork Overlay: Tailscale (Secure WireGuard-based overlay network)\nVisualization: Grafana (Stat panels, time-series graphs, and custom dashboard layouts)\n\n\n\n\nSolar Dashboard Demo"
   },
   {
-    "objectID": "index.html#hi-im-lukas",
-    "href": "index.html#hi-im-lukas",
-    "title": "About me",
-    "section": "",
-    "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
-  },
-  {
-    "objectID": "projects/home-dashboard-grafana/index.html",
-    "href": "projects/home-dashboard-grafana/index.html",
-    "title": "Smart Home Monitoring Dashboard",
-    "section": "",
-    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
-  },
-  {
-    "objectID": "projects/home-dashboard-grafana/index.html#project-overview",
-    "href": "projects/home-dashboard-grafana/index.html#project-overview",
-    "title": "Smart Home Monitoring Dashboard",
-    "section": "",
-    "text": "This project focuses on monitoring and visualizing live data from my apartment. The goal was to create a centralized hub..\n\n\n\nReal-time Monitoring: Live tracking of temperature, humidity, and door/window status.\nHistorical Analysis: Long-term data storage to identify seasonal trends.\nPublic Transport and Bike Sharing Integration\n\n\n\n\n\nVisualization: Grafana\nDatabase: InfluxDB\nData Source: Home Assistant / Custom sensors\n\n\n\n\nLive Dashboard Demo\n\n\n\n\n\n\nThe data is collected via various sensors and pushed into a time-series database. Grafana queries this data to display interactive panels. I optimized the layout for a 10-inch wall-mounted tablet to ensure high readability at a glance.\n\n\n\nYou can find the full source code on GitHub:\nView on GitHub"
+    "objectID": "projects/home-solar-dashboard-grafana/index.html#data-pipeline-architecture",
+    "href": "projects/home-solar-dashboard-grafana/index.html#data-pipeline-architecture",
+    "title": "Solar PV Monitoring & Data Pipeline",
+    "section": "Data Pipeline Architecture",
+    "text": "Data Pipeline Architecture\nThe system utilizes a split-architecture to handle field communications and data visualization efficiently and securely:\n\n1. Protocol Ingestion (Raspberry Pi 2)\nThe Raspberry Pi 2 serves as the dedicated field gateway. It directly interfaces with the hardware components: * Modbus: Polled at regular intervals to extract active power output, voltage, and daily yield directly from the inverter. * MQTT: Subscribes to the wallbox topics to immediately catch state changes, current limits, and active charging sessions.\n\n\n2. Secure Time-Series Storage (Raspberry Pi 4 via Tailscale)\nOnce the Pi 2 collects and normalizes the raw payloads, it transmits the data to InfluxDB v2 running on the Raspberry Pi 4. Instead of exposing ports locally or over a traditional VPN, the transmission relies entirely on Tailscale.\nThe Pi 2 securely pushes data straight to the Pi 4’s encrypted Tailscale IP over an isolated WireGuard tunnel. The data is organized into dedicated measurements (inverter and wallbox), enabling seamless time-series queries.\n\n\n3. Frontend & Dashboard Optimization (Grafana)\nGrafana sits on top of InfluxDB to render the visual panels. To prevent unnecessary browser rendering overhead and eliminate visual flickering, the UI is optimized using selective refresh intervals: * Live Panels: Instantaneous metrics like current consumption or PV generation update on a rapid cycle. * Aggregate Value Cards: Slower metrics like total daily yield are decoupled using now/d overrides and increased Min interval thresholds, completely hiding unnecessary loading indicators."
   }
 ]

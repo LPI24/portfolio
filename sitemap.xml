@@ -2,38 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://LPI24.github.io/portfolio/projects/index.html</loc>
-    <lastmod>2026-02-09T22:51:03.991Z</lastmod>
+    <lastmod>2026-05-30T21:26:28.303Z</lastmod>
   </url>
   <url>
-    <loc>https://LPI24.github.io/portfolio/legal.html</loc>
-    <lastmod>2026-02-09T22:51:03.973Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LPI24.github.io/portfolio/cv.html</loc>
-    <lastmod>2026-02-09T23:02:11.874Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-02-grafana-homelab/index.html</loc>
-    <lastmod>2026-02-10T23:01:11.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LPI24.github.io/portfolio/blog/index.html</loc>
-    <lastmod>2026-02-09T22:51:03.955Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-01-grafana-homelab/index.html</loc>
-    <lastmod>2026-02-09T22:51:03.962Z</lastmod>
-  </url>
-  <url>
-    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html</loc>
-    <lastmod>2026-02-10T23:08:25.467Z</lastmod>
+    <loc>https://LPI24.github.io/portfolio/projects/home-dashboard-grafana/index.html</loc>
+    <lastmod>2026-05-30T20:41:09.651Z</lastmod>
   </url>
   <url>
     <loc>https://LPI24.github.io/portfolio/index.html</loc>
     <lastmod>2026-02-10T13:15:16.950Z</lastmod>
   </url>
   <url>
-    <loc>https://LPI24.github.io/portfolio/projects/home-dashboard-grafana/index.html</loc>
-    <lastmod>2026-02-09T22:51:03.990Z</lastmod>
+    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html</loc>
+    <lastmod>2026-02-10T23:08:25.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-01-grafana-homelab/index.html</loc>
+    <lastmod>2026-02-09T22:51:03.962Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/blog/index.html</loc>
+    <lastmod>2026-02-09T22:51:03.955Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/blog/posts/2026-02-grafana-homelab/index.html</loc>
+    <lastmod>2026-02-10T23:01:11.233Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/cv.html</loc>
+    <lastmod>2026-02-09T23:02:11.874Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/legal.html</loc>
+    <lastmod>2026-02-09T22:51:03.973Z</lastmod>
+  </url>
+  <url>
+    <loc>https://LPI24.github.io/portfolio/projects/home-solar-dashboard-grafana/index.html</loc>
+    <lastmod>2026-05-30T21:12:30.257Z</lastmod>
   </url>
 </urlset>
