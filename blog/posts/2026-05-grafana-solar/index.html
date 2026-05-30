@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lukas Pilz">
+<meta name="dcterms.date" content="2026-05-30">
+<meta name="description" content="How I chained Modbus, MQTT, InfluxDB, and Grafana across multiple Raspberry Pis using a secure Tailscale network overlay.">
 
-<title>Blog – Lukas Pilz</title>
+<title>Building a Secure, Cross-Device Solar PV Monitoring Pipeline – Lukas Pilz</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,68 +75,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <meta name="robots" content="noindex">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -303,11 +246,11 @@ window.Quarto = {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Lukas Pilz</span>
     </a>
   </div>
@@ -318,19 +261,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -354,179 +297,108 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Blog</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="QVBJ">API <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXV0b21hdGlvbg==">Automation <span class="quarto-category-count">(3)</span></div><div class="category" data-category="RGF0YSUyMFNjaWVuY2U=">Data Science <span class="quarto-category-count">(2)</span></div><div class="category" data-category="RGV2b3Bz">Devops <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R3JhZmFuYQ==">Grafana <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SG9tZWxhYg==">Homelab <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW5mbHV4REI=">InfluxDB <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SW9U">IoT <span class="quarto-category-count">(3)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VGFpbHNjYWxl">Tailscale <span class="quarto-category-count">(1)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Content</h2>
+   
+  <ul>
+  <li><a href="#the-challenge-disconnected-energy-data" id="toc-the-challenge-disconnected-energy-data" class="nav-link active" data-scroll-target="#the-challenge-disconnected-energy-data">The Challenge: Disconnected Energy Data</a></li>
+  <li><a href="#architectural-breakdown" id="toc-architectural-breakdown" class="nav-link" data-scroll-target="#architectural-breakdown">Architectural Breakdown</a>
+  <ul class="collapse">
+  <li><a href="#edge-ingestion-with-raspberry-pi-2" id="toc-edge-ingestion-with-raspberry-pi-2" class="nav-link" data-scroll-target="#edge-ingestion-with-raspberry-pi-2">1. Edge Ingestion with Raspberry Pi 2</a></li>
+  <li><a href="#secure-routing-via-tailscale" id="toc-secure-routing-via-tailscale" class="nav-link" data-scroll-target="#secure-routing-via-tailscale">2. Secure Routing via Tailscale</a></li>
+  <li><a href="#storage-visualization-raspberry-pi-4-grafana" id="toc-storage-visualization-raspberry-pi-4-grafana" class="nav-link" data-scroll-target="#storage-visualization-raspberry-pi-4-grafana">3. Storage &amp; Visualization (Raspberry Pi 4 &amp; Grafana)</a></li>
+  </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Building a Secure, Cross-Device Solar PV Monitoring Pipeline</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">IoT</div>
+    <div class="quarto-category">Homelab</div>
+    <div class="quarto-category">Grafana</div>
+    <div class="quarto-category">InfluxDB</div>
+    <div class="quarto-category">Devops</div>
+    <div class="quarto-category">Tailscale</div>
+  </div>
+  </div>
 
-
-
-
-<p>Here I share insights into my projects:</p>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="SW9UJTJDSG9tZWxhYiUyQ0dyYWZhbmElMkNJbmZsdXhEQiUyQ0Rldm9wcyUyQ1RhaWxzY2FsZQ==" data-listing-date-sort="1780092000000" data-listing-file-modified-sort="1780177163968" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="379">
-<div class="thumbnail"><a href="../blog/posts/2026-05-grafana-solar/index.html" class="no-external">
-
-<img loading="lazy" src="../projects/home-solar-dashboard-grafana/solar-dashboard-demo.gif" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/2026-05-grafana-solar/index.html" class="no-external">Building a Secure, Cross-Device Solar PV Monitoring Pipeline</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW9U'); return false;">IoT</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SG9tZWxhYg=='); return false;">Homelab</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('R3JhZmFuYQ=='); return false;">Grafana</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW5mbHV4REI='); return false;">InfluxDB</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV2b3Bz'); return false;">Devops</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('VGFpbHNjYWxl'); return false;">Tailscale</div>
-
+<div>
+  <div class="description">
+    How I chained Modbus, MQTT, InfluxDB, and Grafana across multiple Raspberry Pis using a secure Tailscale network overlay.
+  </div>
 </div>
-<div class="delink listing-description"><a href="../blog/posts/2026-05-grafana-solar/index.html" class="no-external">
-<p>How I chained Modbus, MQTT, InfluxDB, and Grafana across multiple Raspberry Pis using a secure Tailscale network overlay.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/2026-05-grafana-solar/index.html" class="no-external">
-<div class="listing-date">
-May 30, 2026
-</div>
-<div class="listing-author">
-Lukas Pilz
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UHl0aG9uJTJDQVBJJTJDQXV0b21hdGlvbg==" data-listing-date-sort="1770764400000" data-listing-file-modified-sort="1770764905467" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="145">
-<div class="thumbnail"><a href="../blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html" class="no-external">
 
-<img loading="lazy" src="../blog/posts/2026-02-telegram-bot-door-sensor-alarm/sc_shot_telegrambot_sensor.png" class="thumbnail-image">
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html" class="no-external">Smart Notifications: Developing a Telegram IoT Bot</a>
-</h3>
-<div class="listing-categories">
+<div class="quarto-title-meta">
 
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lukas Pilz </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 30, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
-<div class="listing-category" onclick="window.quartoListingCategory('QVBJ'); return false;">API</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGlvbg=='); return false;">Automation</div>
+</header>
 
-</div>
-<div class="delink listing-description"><a href="../blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html" class="no-external">
-<p>Using the Telegram Bot API to receive real-time alerts from my Home Server.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html" class="no-external">
-<div class="listing-date">
-Feb 11, 2026
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="QXV0b21hdGlvbiUyQ0RhdGElMjBTY2llbmNlJTJDSW9U" data-listing-date-sort="1739228400000" data-listing-file-modified-sort="1770764471233" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210">
-<div class="thumbnail"><a href="../blog/posts/2026-02-grafana-homelab/index.html" class="no-external">
 
-<img loading="lazy" src="../blog/posts/2026-02-grafana-homelab/grafana_home.png" class="thumbnail-image">
+<section id="the-challenge-disconnected-energy-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge-disconnected-energy-data">The Challenge: Disconnected Energy Data</h2>
+<p>Modern smart home energy components are great, but they usually trap your data in proprietary cloud silos or fragmented local interfaces. My parents’ house features a high-performance photovoltaic (PV) solar system alongside an EV wallbox.</p>
+<p>The goal was clear: Gather all metrics in real-time, store them, and build a beautiful unified dashboard to correlate solar generation with EV charging loads.</p>
+<p>However, the hardware was spread out, and exposing open database ports across networks is a security nightmare. Here is how I solved it using a multi-node architecture over an encrypted mesh network.</p>
+<hr>
+</section>
+<section id="architectural-breakdown" class="level2">
+<h2 class="anchored" data-anchor-id="architectural-breakdown">Architectural Breakdown</h2>
+<p>Instead of putting all tasks on a single server, I decoupled data ingestion from data storage and visualization.</p>
+<section id="edge-ingestion-with-raspberry-pi-2" class="level3">
+<h3 class="anchored" data-anchor-id="edge-ingestion-with-raspberry-pi-2">1. Edge Ingestion with Raspberry Pi 2</h3>
+<p>Right at the frontline, a legacy Raspberry Pi 2 acts as a dedicated field protocol gateway. It speaks two completely different languages simultaneously: * <strong>Modbus TCP/RTU:</strong> It polls the solar inverter at regular intervals to extract metrics like current power output, grid feed-in, and string voltages. * <strong>MQTT:</strong> It subscribes to the EV wallbox broker to instantaneously catch charging states and changes in grid-demanded currents.</p>
+</section>
+<section id="secure-routing-via-tailscale" class="level3">
+<h3 class="anchored" data-anchor-id="secure-routing-via-tailscale">2. Secure Routing via Tailscale</h3>
+<p>This is the secret sauce of the project. The gateway (Pi 2) and the database server (Pi 4) are not sitting on the same open local network. To secure the communication without the overhead of a traditional, complex VPN client-server architecture, I deployed <strong>Tailscale</strong>.</p>
+<p>Both nodes are part of a private WireGuard-based mesh network. The Pi 2 pushes data directly to the Pi 4’s internal Tailscale IP. It’s fully encrypted, NAT-traversing, and completely invisible to the public internet.</p>
+</section>
+<section id="storage-visualization-raspberry-pi-4-grafana" class="level3">
+<h3 class="anchored" data-anchor-id="storage-visualization-raspberry-pi-4-grafana">3. Storage &amp; Visualization (Raspberry Pi 4 &amp; Grafana)</h3>
+<p>On the receiving end, a Raspberry Pi 4 stores the incoming data streams into <strong>InfluxDB v2</strong>. Since solar and charging metrics are inherently time-series data, InfluxDB handles the high-frequency logs effortlessly.</p>
+<p>Finally, <strong>Grafana</strong> queries the data to render the UI.</p>
+<hr>
+</section>
+</section>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<p>Building this pipeline was a fantastic exercise in infrastructure decoupling and IoT security. Using a lightweight node (Pi 2) for hardware polling ensures that even if a sensor script crashes, the central database on the Pi 4 remains entirely unaffected.</p>
+<p>If you are looking into bridging multiple IoT nodes across distant networks, look into <strong>Tailscale</strong>—it saves hours of network configuration and keeps your smart home data exactly where it belongs: in your hands.</p>
 
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/2026-02-grafana-homelab/index.html" class="no-external">Extend Home Dashboard with Grafana</a>
-</h3>
-<div class="listing-categories">
 
-<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGlvbg=='); return false;">Automation</div>
+</section>
 
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW9U'); return false;">IoT</div>
-
-</div>
-<div class="delink listing-description"><a href="../blog/posts/2026-02-grafana-homelab/index.html" class="no-external">
-<p>Public Transport Extension for my Grafana Home Dashboard</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/2026-02-grafana-homelab/index.html" class="no-external">
-<div class="listing-date">
-Feb 11, 2025
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="QXV0b21hdGlvbiUyQ0RhdGElMjBTY2llbmNlJTJDSW9U" data-listing-date-sort="1736636400000" data-listing-file-modified-sort="1770677463962" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="151">
-<div class="thumbnail"><a href="../blog/posts/2026-01-grafana-homelab/index.html" class="no-external">
-
-<img loading="lazy" src="../blog/posts/2026-01-grafana-homelab/grafana_homelab_v1.png" class="thumbnail-image">
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/posts/2026-01-grafana-homelab/index.html" class="no-external">Building a Private Home Dashboard with Grafana</a>
-</h3>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('QXV0b21hdGlvbg=='); return false;">Automation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFNjaWVuY2U='); return false;">Data Science</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('SW9U'); return false;">IoT</div>
-
-</div>
-<div class="delink listing-description"><a href="../blog/posts/2026-01-grafana-homelab/index.html" class="no-external">
-<p>How I track my home sensor data using real-time visualization.</p>
-</a></div>
-</div>
-<div class="metadata">
-<a href="../blog/posts/2026-01-grafana-homelab/index.html" class="no-external">
-<div class="listing-date">
-Jan 12, 2025
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -952,7 +824,7 @@ Jan 12, 2025
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../legal.html">
+    <a class="nav-link" href="../../../legal.html">
 <p>Legal notice &amp; Privacy policy</p>
 </a>
   </li>  

@@ -35,11 +35,46 @@
     "text": "I am a Business Informatics student at TU Dresden, specializing in Machine Learning. Currently, I work as a Working Student at Dometa, where I focus on automating building intelligence with supportive API scripts. I transform sensor data into actionable insights using real-time Thingsboard or Grafana dashboards.\nWith a professional background in Logistics Planning, I combine domain expertise with modern data science to build efficient, automated solutions.\nData Science – Specialized in predictive modeling and ML (Study focus). Logistics Expertise – Deep domain knowledge from my previous career path. Automation – Passionate about Smart Home, APIs, and Python/R scripting. Visualisation – Passionate in creating real-time dashboards with Grafana or Thingsboard.\n\nCheck out my Projects to see my work in action or view my CV for the full story."
   },
   {
-    "objectID": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
-    "href": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
-    "title": "Smart Notifications: Developing a Telegram IoT Bot",
+    "objectID": "blog/posts/2026-05-grafana-solar/index.html",
+    "href": "blog/posts/2026-05-grafana-solar/index.html",
+    "title": "Building a Secure, Cross-Device Solar PV Monitoring Pipeline",
     "section": "",
-    "text": "Monitoring dashboards is great, but receiving active alerts is better. I developed a Python-based Telegram Bot that acts as a bridge between my home sensors and my smartphone.\n\nWhy a Telegram Bot?\nUnlike traditional dashboards, a bot can proactively reach out when certain conditions are met. I used the python-telegram-bot library to implement this logic.\n\n\n\n\n\n\n\nTelegram Door Sensor Alarm Bot\n\n\n\n\nCore Features\n\nReal-time Alerts: The bot sends a message if bot is activated (/on) and the window or door is opened.\nStatus Queries: You can retrieve the status of the window and/or door (/status)\n\n\n\nThe Technical Stack\n\nLanguage: Python\nAPI: Telegram Bot API (via python-telegram-bot)\nData Connection: MQTT via Zigbee Dongle\n\n\nThis project demonstrates how to build functional interfaces for data systems, moving from passive monitoring to active automation.\n\n\n  View Project on GitHub"
+    "text": "Modern smart home energy components are great, but they usually trap your data in proprietary cloud silos or fragmented local interfaces. My parents’ house features a high-performance photovoltaic (PV) solar system alongside an EV wallbox.\nThe goal was clear: Gather all metrics in real-time, store them, and build a beautiful unified dashboard to correlate solar generation with EV charging loads.\nHowever, the hardware was spread out, and exposing open database ports across networks is a security nightmare. Here is how I solved it using a multi-node architecture over an encrypted mesh network."
+  },
+  {
+    "objectID": "blog/posts/2026-05-grafana-solar/index.html#the-challenge-disconnected-energy-data",
+    "href": "blog/posts/2026-05-grafana-solar/index.html#the-challenge-disconnected-energy-data",
+    "title": "Building a Secure, Cross-Device Solar PV Monitoring Pipeline",
+    "section": "",
+    "text": "Modern smart home energy components are great, but they usually trap your data in proprietary cloud silos or fragmented local interfaces. My parents’ house features a high-performance photovoltaic (PV) solar system alongside an EV wallbox.\nThe goal was clear: Gather all metrics in real-time, store them, and build a beautiful unified dashboard to correlate solar generation with EV charging loads.\nHowever, the hardware was spread out, and exposing open database ports across networks is a security nightmare. Here is how I solved it using a multi-node architecture over an encrypted mesh network."
+  },
+  {
+    "objectID": "blog/posts/2026-05-grafana-solar/index.html#architectural-breakdown",
+    "href": "blog/posts/2026-05-grafana-solar/index.html#architectural-breakdown",
+    "title": "Building a Secure, Cross-Device Solar PV Monitoring Pipeline",
+    "section": "Architectural Breakdown",
+    "text": "Architectural Breakdown\nInstead of putting all tasks on a single server, I decoupled data ingestion from data storage and visualization.\n\n1. Edge Ingestion with Raspberry Pi 2\nRight at the frontline, a legacy Raspberry Pi 2 acts as a dedicated field protocol gateway. It speaks two completely different languages simultaneously: * Modbus TCP/RTU: It polls the solar inverter at regular intervals to extract metrics like current power output, grid feed-in, and string voltages. * MQTT: It subscribes to the EV wallbox broker to instantaneously catch charging states and changes in grid-demanded currents.\n\n\n2. Secure Routing via Tailscale\nThis is the secret sauce of the project. The gateway (Pi 2) and the database server (Pi 4) are not sitting on the same open local network. To secure the communication without the overhead of a traditional, complex VPN client-server architecture, I deployed Tailscale.\nBoth nodes are part of a private WireGuard-based mesh network. The Pi 2 pushes data directly to the Pi 4’s internal Tailscale IP. It’s fully encrypted, NAT-traversing, and completely invisible to the public internet.\n\n\n3. Storage & Visualization (Raspberry Pi 4 & Grafana)\nOn the receiving end, a Raspberry Pi 4 stores the incoming data streams into InfluxDB v2. Since solar and charging metrics are inherently time-series data, InfluxDB handles the high-frequency logs effortlessly.\nFinally, Grafana queries the data to render the UI."
+  },
+  {
+    "objectID": "blog/posts/2026-05-grafana-solar/index.html#key-takeaways",
+    "href": "blog/posts/2026-05-grafana-solar/index.html#key-takeaways",
+    "title": "Building a Secure, Cross-Device Solar PV Monitoring Pipeline",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\nBuilding this pipeline was a fantastic exercise in infrastructure decoupling and IoT security. Using a lightweight node (Pi 2) for hardware polling ensures that even if a sensor script crashes, the central database on the Pi 4 remains entirely unaffected.\nIf you are looking into bridging multiple IoT nodes across distant networks, look into Tailscale—it saves hours of network configuration and keeps your smart home data exactly where it belongs: in your hands."
+  },
+  {
+    "objectID": "blog/posts/2026-02-grafana-homelab/index.html",
+    "href": "blog/posts/2026-02-grafana-homelab/index.html",
+    "title": "Extend Home Dashboard with Grafana",
+    "section": "",
+    "text": "To make my Home Dashboard even more practical for daily life, I decided to integrate real-time mobility data. Living in Dresden, I wanted to see exactly when the next tram or bike is available without opening multiple apps.\n\nIntegrating Local Transport (DVB)\nI extended the dashboard with a live overview of upcoming departures from stations near my flat.\n\nThe Tech: I used the DVB.py Python package to interface with the VVO (Verkehrsverbund Oberelbe) data.\nThe Process: A script fetches the live departure times, filters for relevant lines, and pushes the data into my InfluxDB.\n\n\n\n\nReal Time Public Transport Overview\n\n\n\n\nBike Sharing Integration (Nextbike)\nIn addition to public transport, I implemented a tracking feature for Nextbike (the local bike-sharing provider).\n\nAPI Utilization: By querying the Nextbike API, I can now see the number of available bikes and their exact locations in my immediate vicinity.\nBenefit: This allows for a seamless decision-making process in the morning: Tram, bike, or walk?\n\n\n\n\nReal Time Bike Sharing Overview\n\n\n\n\nTechnical Takeaway\nThis extension was a great exercise in:\n\nWorking with external APIs and handling JSON data.\nPython scripting for automated data retrieval.\nData transformation: Converting live API responses into time-series formats suitable for Grafana.\n\n\n  View Project on GitHub"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Here I share insights into my projects:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Secure, Cross-Device Solar PV Monitoring Pipeline\n\n\n\nIoT\n\nHomelab\n\nGrafana\n\nInfluxDB\n\nDevops\n\nTailscale\n\n\n\nHow I chained Modbus, MQTT, InfluxDB, and Grafana across multiple Raspberry Pis using a secure Tailscale network overlay.\n\n\n\n\n\nMay 30, 2026\n\n\nLukas Pilz\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Notifications: Developing a Telegram IoT Bot\n\n\n\nPython\n\nAPI\n\nAutomation\n\n\n\nUsing the Telegram Bot API to receive real-time alerts from my Home Server.\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nExtend Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nPublic Transport Extension for my Grafana Home Dashboard\n\n\n\n\n\nFeb 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Private Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nHow I track my home sensor data using real-time visualization.\n\n\n\n\n\nJan 12, 2025\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/2026-01-grafana-homelab/index.html",
@@ -49,18 +84,11 @@
     "text": "I built a custom home-server environment to monitor my living space in real-time. To achieve this, I connected several temperature and humidity sensors to ESP32 controllers distributed throughout my flat. Additionally, I installed door and window sensors connected via a SONOFF Zigbee dongle.\nAll sensors transmit their data to a central bridge, which forwards the information into an InfluxDB time-series database.\n\nThe Setup\nMy home automation system collects data from various sensors (temperature, energy consumption, network traffic). The core stack consists of:\n\nData Sources: Diverse IoT sensors (ESP32-based climate sensors and SONOFF door/window sensors).\nCommunication: MQTT and an InfluxDB bridge running on a Raspberry Pi.\nDatabase: InfluxDB for efficient time-series storage.\nVisualization: Grafana for real-time monitoring and historical analysis.\n\n\n\nKey Insights\nThis dashboard allows me to track environmental changes and room activity precisely. It was an excellent project to practice MQTT protocols, API integration, and data pipeline management before the information reaches the final dashboard.\n\n\n\nGrafana Dashboard"
   },
   {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Blog",
+    "objectID": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
+    "href": "blog/posts/2026-02-telegram-bot-door-sensor-alarm/index.html",
+    "title": "Smart Notifications: Developing a Telegram IoT Bot",
     "section": "",
-    "text": "Here I share insights into my projects:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSmart Notifications: Developing a Telegram IoT Bot\n\n\n\nPython\n\nAPI\n\nAutomation\n\n\n\nUsing the Telegram Bot API to receive real-time alerts from my Home Server.\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\nExtend Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nPublic Transport Extension for my Grafana Home Dashboard\n\n\n\n\n\nFeb 11, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nBuilding a Private Home Dashboard with Grafana\n\n\n\nAutomation\n\nData Science\n\nIoT\n\n\n\nHow I track my home sensor data using real-time visualization.\n\n\n\n\n\nJan 12, 2025\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/2026-02-grafana-homelab/index.html",
-    "href": "blog/posts/2026-02-grafana-homelab/index.html",
-    "title": "Extend Home Dashboard with Grafana",
-    "section": "",
-    "text": "To make my Home Dashboard even more practical for daily life, I decided to integrate real-time mobility data. Living in Dresden, I wanted to see exactly when the next tram or bike is available without opening multiple apps.\n\nIntegrating Local Transport (DVB)\nI extended the dashboard with a live overview of upcoming departures from stations near my flat.\n\nThe Tech: I used the DVB.py Python package to interface with the VVO (Verkehrsverbund Oberelbe) data.\nThe Process: A script fetches the live departure times, filters for relevant lines, and pushes the data into my InfluxDB.\n\n\n\n\nReal Time Public Transport Overview\n\n\n\n\nBike Sharing Integration (Nextbike)\nIn addition to public transport, I implemented a tracking feature for Nextbike (the local bike-sharing provider).\n\nAPI Utilization: By querying the Nextbike API, I can now see the number of available bikes and their exact locations in my immediate vicinity.\nBenefit: This allows for a seamless decision-making process in the morning: Tram, bike, or walk?\n\n\n\n\nReal Time Bike Sharing Overview\n\n\n\n\nTechnical Takeaway\nThis extension was a great exercise in:\n\nWorking with external APIs and handling JSON data.\nPython scripting for automated data retrieval.\nData transformation: Converting live API responses into time-series formats suitable for Grafana.\n\n\n  View Project on GitHub"
+    "text": "Monitoring dashboards is great, but receiving active alerts is better. I developed a Python-based Telegram Bot that acts as a bridge between my home sensors and my smartphone.\n\nWhy a Telegram Bot?\nUnlike traditional dashboards, a bot can proactively reach out when certain conditions are met. I used the python-telegram-bot library to implement this logic.\n\n\n\n\n\n\n\nTelegram Door Sensor Alarm Bot\n\n\n\n\nCore Features\n\nReal-time Alerts: The bot sends a message if bot is activated (/on) and the window or door is opened.\nStatus Queries: You can retrieve the status of the window and/or door (/status)\n\n\n\nThe Technical Stack\n\nLanguage: Python\nAPI: Telegram Bot API (via python-telegram-bot)\nData Connection: MQTT via Zigbee Dongle\n\n\nThis project demonstrates how to build functional interfaces for data systems, moving from passive monitoring to active automation.\n\n\n  View Project on GitHub"
   },
   {
     "objectID": "cv.html",
