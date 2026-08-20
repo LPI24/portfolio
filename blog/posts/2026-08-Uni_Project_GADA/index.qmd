@@ -1,0 +1,45 @@
+---
+title: "Predictive Cycling Ranking: Evaluating ML Architectures for Grand Tour Stage Outcomes"
+date: "2026-08-20"
+description: "A deep dive into building an ML pipeline that compares Pointwise Classification, GAMs (EBM), and Listwise Learning-to-Rank (XGBRanker) to predict professional cycling results while tackling temporal data drift."
+author: "Lukas Pilz"
+categories: [Machine Learning, Learning to Rank, XGBoost, TabPFN, InterpretML, Python, Data Science]
+image: ""
+---
+
+## The Challenge: Predicting Unpredictable Grand Tour Stages
+
+Predicting outcomes in professional road cycling (such as the Tour de France) is an inherently complex Machine Learning challenge. Performance is highly non-linear: rider capabilities, team tactics, extreme terrain profiles ($>4,000\,\text{m}$ elevation gain), and weather conditions all interact dynamically. Furthermore, standard historical features suffer from severe **temporal data drift** as riders accumulate seasonal points over time.
+
+As part of a **university group project**, our team set out to build an end-to-end Machine Learning and Master-Inference Pipeline. Our primary objective was to evaluate how different paradigm classes—**Pointwise Classification**, **Generalized Additive Models (EBM)**, and **Listwise Learning-to-Rank (XGBRanker)**—handle non-linear rankings and feature bias in live race conditions.
+
+---
+
+## Architectural Breakdown & Methodology
+
+Instead of treating stage prediction as a simple classification or regression problem, we structured the pipeline to evaluate multiple model paradigms on identical live feature sets.
+
+### 1. Classification vs. Regression Framing
+Applying standard regression to ordinal finishing ranks (e.g., predicting rank 120 vs. 130) drains model capacity on non-critical "peloton noise" in the gruppetto. Following the **McRank paradigm**, we framed the task around ordinal classification targets ($\text{Top-5}$, $\text{Top-10}$, $\text{Top-20}$) to compute expected relevance scores. This focuses model capacity strictly on the decisive front-runners.
+
+### 2. Comparative Model Engine
+Our pipeline evaluates four distinct model architectures under identical stage metadata:
+* **Explainable Boosting Machines (EBM):** Uses additive shape functions and explicit pairwise interaction terms ($GA^2M$) to prevent individual feature dominance.
+* **XGBoost Classifier:** Standard Gradient Boosted Decision Trees evaluating pointwise probabilities.
+* **TabPFN:** An In-Context Learning Foundation Model for tabular data.
+* **XGBRanker:** A dedicated Listwise Learning-to-Rank model optimizing directly for group-based **NDCG**.
+
+### 3. Tackling Temporal Data Drift
+A key finding during live inferences (e.g., Tour de France 2026) was the **Pointwise Feature Bias**: accumulative seasonal points (`lag_rider_points_season`) caused traditional classifiers (XGBoost & TabPFN) to falsely overpredict sprinters on high-altitude mountain stages ($>4,000\,\text{m}$ elevation gain).
+
+We mitigated this by contrasting pointwise predictions against **XGBRanker**. By enforcing a group structure (`group=stage_id`) and optimizing for NDCG, the ranker evaluates riders *relative to the specific stage peloton* rather than as isolated data instances—completely neutralizing the seasonal point inflation.
+
+---
+
+## Key Takeaways
+
+This university project provided invaluable insights into real-world Learning-to-Rank (LTR) dynamics and time-series feature stability.
+
+* **Listwise > Pointwise for Relative Competition:** Standard classification models struggle when feature scales drift over multi-year horizons. Group-based LTR models (XGBRanker) implicitly scale variables relative to the competing group, making them drastically more resilient for future live predictions.
+* **Explainability via GAMs:** EBM proved surprisingly robust against feature dominance due to its bounded shape functions, offering a great balance between interpretability and predictive stability on mountain stages.
+* **Academic Metrics Matter:** Evaluating models via **NDCG@K**, **MAP@10**, and **Top-K Accuracy** reflects the true business and domain objective far better than standard accuracy or log-loss metrics.
