@@ -5,7 +5,6 @@ format:
     toc: true
     page-layout: article
 ---
-^
 
 ## Professional Experience
 
