@@ -9,7 +9,7 @@ format:
 ## Professional Experience
 
 ### **Data Engineering Intern** | Aristotle University of Thessaloniki (AUTH)
-*Oct - Dez 2026*
+*Oct - Dec 2026*
 
 * **Building a Central Data Platform for Bioprocess Lab** *
 * **Device Integration:** Implemented OPC UA clients in Python to connect lab instruments to a central data platform.
