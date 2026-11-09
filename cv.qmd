@@ -17,7 +17,7 @@ _Oct 2026 – Present_
 * **Data Architecture:** Designed the data flow from instrument to model input, including protocol selection and one central ingestion point per device.
 
 ### **Working Student – Project Management** | Dometa, Dresden
-*Oct 2024 – Present*
+_Oct 2024 – Present_
 
 * **Process Automation:** Developed API scripts to automate daily operational tasks, reducing manual effort by streamlining sensor data workflows.
 * **Data Visualization:** Built real-time Thingsboard dashboards for building sensor data (heat/water meters...), enabling data-driven decision-making for the technical management.
