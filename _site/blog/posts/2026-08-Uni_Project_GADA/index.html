@@ -8,9 +8,9 @@
 
 <meta name="author" content="Lukas Pilz">
 <meta name="dcterms.date" content="2026-08-20">
-<meta name="description" content="A machine learning pipeline comparing Pointwise, GAM, and Listwise Learning-to-Rank architectures for predicting professional road cycling stage results.">
+<meta name="description" content="A deep dive into building an ML pipeline that compares Pointwise Classification, GAMs (EBM), and Listwise Learning-to-Rank (XGBRanker) to predict professional cycling results while tackling temporal data drift.">
 
-<title>Predictive Cycling Ranking &amp; Stage Analytics – Lukas Pilz</title>
+<title>Predictive Cycling Ranking: Evaluating ML Architectures for Grand Tour Stage Outcomes – Lukas Pilz</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,31 +26,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4d9afe2b8d18ee9fa5d0d57b5ed4214d.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark-24772959a0e306aba8d7698078628ce7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/bootstrap/bootstrap-ffa9a6279353761231ec249df0a7fdd3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -110,7 +107,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -282,7 +279,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Lukas Pilz</span>
     </a>
   </div>
@@ -293,19 +290,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
+    <a class="nav-link" href="../../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../cv.html"> 
+    <a class="nav-link" href="../../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html"> 
+    <a class="nav-link" href="../../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects/index.html"> 
+    <a class="nav-link" href="../../../projects/index.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
 </ul>
@@ -337,13 +334,14 @@ window.Quarto = {
     <h2 id="toc-title">Content</h2>
    
   <ul>
-  <li><a href="#project-overview" id="toc-project-overview" class="nav-link active" data-scroll-target="#project-overview">Project Overview</a>
+  <li><a href="#the-challenge-predicting-unpredictable-grand-tour-stages" id="toc-the-challenge-predicting-unpredictable-grand-tour-stages" class="nav-link active" data-scroll-target="#the-challenge-predicting-unpredictable-grand-tour-stages">The Challenge: Predicting Unpredictable Grand Tour Stages</a></li>
+  <li><a href="#architectural-breakdown-methodology" id="toc-architectural-breakdown-methodology" class="nav-link" data-scroll-target="#architectural-breakdown-methodology">Architectural Breakdown &amp; Methodology</a>
   <ul class="collapse">
-  <li><a href="#key-features" id="toc-key-features" class="nav-link" data-scroll-target="#key-features">Key Features</a></li>
-  <li><a href="#the-tech-stack" id="toc-the-tech-stack" class="nav-link" data-scroll-target="#the-tech-stack">The Tech Stack</a></li>
-  <li><a href="#implementation-details" id="toc-implementation-details" class="nav-link" data-scroll-target="#implementation-details">Implementation Details</a></li>
-  <li><a href="#code-repository" id="toc-code-repository" class="nav-link" data-scroll-target="#code-repository">Code &amp; Repository</a></li>
+  <li><a href="#classification-vs.-regression-framing" id="toc-classification-vs.-regression-framing" class="nav-link" data-scroll-target="#classification-vs.-regression-framing">1. Classification vs.&nbsp;Regression Framing</a></li>
+  <li><a href="#comparative-model-engine" id="toc-comparative-model-engine" class="nav-link" data-scroll-target="#comparative-model-engine">2. Comparative Model Engine</a></li>
+  <li><a href="#tackling-temporal-data-drift" id="toc-tackling-temporal-data-drift" class="nav-link" data-scroll-target="#tackling-temporal-data-drift">3. Tackling Temporal Data Drift</a></li>
   </ul></li>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link" data-scroll-target="#key-takeaways">Key Takeaways</a></li>
   </ul>
 </nav>
     </div>
@@ -353,20 +351,21 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Predictive Cycling Ranking &amp; Stage Analytics</h1>
+<h1 class="title">Predictive Cycling Ranking: Evaluating ML Architectures for Grand Tour Stage Outcomes</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Machine Learning</div>
     <div class="quarto-category">Learning to Rank</div>
     <div class="quarto-category">XGBoost</div>
     <div class="quarto-category">TabPFN</div>
-    <div class="quarto-category">EBM</div>
+    <div class="quarto-category">InterpretML</div>
     <div class="quarto-category">Python</div>
+    <div class="quarto-category">Data Science</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A machine learning pipeline comparing Pointwise, GAM, and Listwise Learning-to-Rank architectures for predicting professional road cycling stage results.
+    A deep dive into building an ML pipeline that compares Pointwise Classification, GAMs (EBM), and Listwise Learning-to-Rank (XGBRanker) to predict professional cycling results while tackling temporal data drift.
   </div>
 </div>
 
@@ -395,53 +394,40 @@ window.Quarto = {
 </header>
 
 
-<section id="project-overview" class="level2">
-<h2 class="anchored" data-anchor-id="project-overview">Project Overview</h2>
-<p>This project builds an end-to-end Machine Learning and Inference Pipeline to forecast individual rider performances and stage rankings in professional Grand Tours (e.g., Tour de France).</p>
-<p>Predicting professional cycling outcomes presents unique challenges: non-linear performance metrics, extreme terrain variations (mountain vs.&nbsp;sprint stages), and severe <strong>temporal data drift</strong>. The primary goal of this project was to compare state-of-the-art architectures across <strong>Pointwise Classification</strong>, <strong>Generalized Additive Models (EBM)</strong>, and <strong>Listwise Learning-to-Rank (XGBRanker)</strong> paradigms.</p>
-<section id="key-features" class="level3">
-<h3 class="anchored" data-anchor-id="key-features">Key Features</h3>
-<ul>
-<li><strong>Multi-Model Inference Engine:</strong> Comparative evaluation of Explainable Boosting Machines (EBM), TabPFN (In-Context Foundation Model), XGBoost, and XGBRanker.</li>
-<li><strong>Academic Evaluation Suite:</strong> Automated calculation of ranking metrics including <strong>NDCG@K (5, 10, 20)</strong>, <strong>MAP@10</strong>, and <strong>Top-K Accuracies</strong>.</li>
-<li><strong>McRank &amp; Ordinal Framing:</strong> Formulation of the ranking problem using ordinal classification and expected relevance scoring to prioritize Top-10 contenders over peloton noise.</li>
-<li><strong>Drift-Resilient Feature Engineering:</strong> Integration of rolling seasonal performance lags, rider physical profiles, and stage topology (elevation gain, max gradient, distance).</li>
-</ul>
-</section>
-<section id="the-tech-stack" class="level3">
-<h3 class="anchored" data-anchor-id="the-tech-stack">The Tech Stack</h3>
-<ul>
-<li><strong>Machine Learning:</strong> <a href="https://xgboost.readthedocs.io/">XGBoost</a>, <a href="https://interpret.ml/">InterpretML (EBM)</a>, <a href="https://github.com/automl/TabPFN">TabPFN</a></li>
-<li><strong>Data Processing &amp; Pipeline:</strong> Python, Pandas, NumPy, Scikit-Learn, Pickle</li>
-<li><strong>Evaluation &amp; Ranking:</strong> Custom NDCG &amp; MAP implementations, McRank paradigm</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="cycling-pipeline-demo.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Model Comparison Dashboard"><img src="cycling-pipeline-demo.png" class="img-fluid figure-img" alt="Model Comparison Dashboard"></a></p>
-<figcaption>Model Comparison Dashboard</figcaption>
-</figure>
-</div>
+<section id="the-challenge-predicting-unpredictable-grand-tour-stages" class="level2">
+<h2 class="anchored" data-anchor-id="the-challenge-predicting-unpredictable-grand-tour-stages">The Challenge: Predicting Unpredictable Grand Tour Stages</h2>
+<p>Predicting outcomes in professional road cycling (such as the Tour de France) is an inherently complex Machine Learning challenge. Performance is highly non-linear: rider capabilities, team tactics, extreme terrain profiles (<span class="math inline">\(&gt;4,000\,\text{m}\)</span> elevation gain), and weather conditions all interact dynamically. Furthermore, standard historical features suffer from severe <strong>temporal data drift</strong> as riders accumulate seasonal points over time.</p>
+<p>As part of a <strong>university group project</strong>, our team set out to build an end-to-end Machine Learning and Master-Inference Pipeline. Our primary objective was to evaluate how different paradigm classes—<strong>Pointwise Classification</strong>, <strong>Generalized Additive Models (EBM)</strong>, and <strong>Listwise Learning-to-Rank (XGBRanker)</strong>—handle non-linear rankings and feature bias in live race conditions.</p>
 <hr>
 </section>
-<section id="implementation-details" class="level3">
-<h3 class="anchored" data-anchor-id="implementation-details">Implementation Details</h3>
-<section id="classification-vs.-regression-strategy" class="level4">
-<h4 class="anchored" data-anchor-id="classification-vs.-regression-strategy">1. Classification vs.&nbsp;Regression Strategy</h4>
-<p>Instead of applying a standard regressor to ordinal finish positions (where predicting rank 120 vs.&nbsp;130 drains model capacity on non-critical peloton noise), the problem was framed as a multi-class/ordinal classification task. The pipeline aggregates class probabilities (<span class="math inline">\(p(\text{Top-5})\)</span>, <span class="math inline">\(p(\text{Top-10})\)</span>, <span class="math inline">\(p(\text{Top-20})\)</span>) into a unified expected relevance score.</p>
+<section id="architectural-breakdown-methodology" class="level2">
+<h2 class="anchored" data-anchor-id="architectural-breakdown-methodology">Architectural Breakdown &amp; Methodology</h2>
+<p>Instead of treating stage prediction as a simple classification or regression problem, we structured the pipeline to evaluate multiple model paradigms on identical live feature sets.</p>
+<section id="classification-vs.-regression-framing" class="level3">
+<h3 class="anchored" data-anchor-id="classification-vs.-regression-framing">1. Classification vs.&nbsp;Regression Framing</h3>
+<p>Applying standard regression to ordinal finishing ranks (e.g., predicting rank 120 vs.&nbsp;130) drains model capacity on non-critical “peloton noise” in the gruppetto. Following the <strong>McRank paradigm</strong>, we framed the task around ordinal classification targets (<span class="math inline">\(\text{Top-5}\)</span>, <span class="math inline">\(\text{Top-10}\)</span>, <span class="math inline">\(\text{Top-20}\)</span>) to compute expected relevance scores. This focuses model capacity strictly on the decisive front-runners.</p>
 </section>
-<section id="overcoming-temporal-data-drift-feature-bias" class="level4">
-<h4 class="anchored" data-anchor-id="overcoming-temporal-data-drift-feature-bias">2. Overcoming Temporal Data Drift &amp; Feature Bias</h4>
-<p>A major challenge discovered during live 2026 inferences was the <strong>Pointwise Feature Bias</strong>: accumulative seasonal points caused traditional classifiers (XGBoost &amp; TabPFN) to overpredict sprinters on high-altitude mountain stages (<span class="math inline">\(&gt;4,000\,\text{m}\)</span> elevation gain).</p>
-<p>This project successfully mitigated this via: * <strong>Explainable Boosting Machines (EBM):</strong> Utilizing shape functions and explicit pairwise interaction terms (<span class="math inline">\(GA^2M\)</span>) to mathematically bound feature dominance. * <strong>Listwise Learning-to-Rank (XGBRanker):</strong> Leveraging group-based NDCG optimization to evaluate riders relative to the specific stage peloton rather than as isolated data points.</p>
+<section id="comparative-model-engine" class="level3">
+<h3 class="anchored" data-anchor-id="comparative-model-engine">2. Comparative Model Engine</h3>
+<p>Our pipeline evaluates four distinct model architectures under identical stage metadata: * <strong>Explainable Boosting Machines (EBM):</strong> Uses additive shape functions and explicit pairwise interaction terms (<span class="math inline">\(GA^2M\)</span>) to prevent individual feature dominance. * <strong>XGBoost Classifier:</strong> Standard Gradient Boosted Decision Trees evaluating pointwise probabilities. * <strong>TabPFN:</strong> An In-Context Learning Foundation Model for tabular data. * <strong>XGBRanker:</strong> A dedicated Listwise Learning-to-Rank model optimizing directly for group-based <strong>NDCG</strong>.</p>
+</section>
+<section id="tackling-temporal-data-drift" class="level3">
+<h3 class="anchored" data-anchor-id="tackling-temporal-data-drift">3. Tackling Temporal Data Drift</h3>
+<p>A key finding during live inferences (e.g., Tour de France 2026) was the <strong>Pointwise Feature Bias</strong>: accumulative seasonal points (<code>lag_rider_points_season</code>) caused traditional classifiers (XGBoost &amp; TabPFN) to falsely overpredict sprinters on high-altitude mountain stages (<span class="math inline">\(&gt;4,000\,\text{m}\)</span> elevation gain).</p>
+<p>We mitigated this by contrasting pointwise predictions against <strong>XGBRanker</strong>. By enforcing a group structure (<code>group=stage_id</code>) and optimizing for NDCG, the ranker evaluates riders <em>relative to the specific stage peloton</em> rather than as isolated data instances—completely neutralizing the seasonal point inflation.</p>
+<hr>
 </section>
 </section>
-<section id="code-repository" class="level3">
-<h3 class="anchored" data-anchor-id="code-repository">Code &amp; Repository</h3>
-<p>You can find the full source code and pipeline setup on GitHub:</p>
-<p><a href="https://github.com/LPI24/CyclingStagePredictor" class="btn btn-outline-primary btn-sm" role="button">View on GitHub</a></p>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<p>This university project provided invaluable insights into real-world Learning-to-Rank (LTR) dynamics and time-series feature stability.</p>
+<ul>
+<li><strong>Listwise &gt; Pointwise for Relative Competition:</strong> Standard classification models struggle when feature scales drift over multi-year horizons. Group-based LTR models (XGBRanker) implicitly scale variables relative to the competing group, making them drastically more resilient for future live predictions.</li>
+<li><strong>Explainability via GAMs:</strong> EBM proved surprisingly robust against feature dominance due to its bounded shape functions, offering a great balance between interpretability and predictive stability on mountain stages.</li>
+<li><strong>Academic Metrics Matter:</strong> Evaluating models via <strong>NDCG@K</strong>, <strong>MAP@10</strong>, and <strong>Top-K Accuracy</strong> reflects the true business and domain objective far better than standard accuracy or log-loss metrics.</li>
+</ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -870,7 +856,7 @@ window.Quarto = {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../legal.html">
+    <a class="nav-link" href="../../../legal.html">
 <p>Legal notice &amp; Privacy policy</p>
 </a>
   </li>  
@@ -878,38 +864,6 @@ window.Quarto = {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
-(function() {
-  let previousOnload = window.onload;
-  window.onload = () => {
-    if (previousOnload) {
-      previousOnload();
-    }
-    lightboxQuarto.on('slide_before_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      const href = trigger.getAttribute('href');
-      if (href !== null) {
-        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-        if (imgEl !== null) {
-          const srcAttr = imgEl.getAttribute("src");
-          if (srcAttr && srcAttr.startsWith("data:")) {
-            slideConfig.href = srcAttr;
-          }
-        }
-      } 
-    });
-  
-    lightboxQuarto.on('slide_after_load', (data) => {
-      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(slideNode);
-      }
-    });
-  
-  };
-  
-})();
-          </script>
 
 
 

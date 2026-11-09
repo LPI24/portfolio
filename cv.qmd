@@ -8,6 +8,14 @@ format:
 
 ## Professional Experience
 
+### **Data Engineering Intern** | Aristotle University of Thessaloniki (AUTH)
+*Oct - Dez 2026*
+
+* **Building a Central Data Platform for Bioprocess Lab** *
+* **Device Integration:** Implemented OPC UA clients in Python to connect lab instruments to a central data platform.
+* **Time-Series Storage:** Deployed TimescaleDB in Docker as the central time-series store, including hypertables and role-separated access.
+* **Data Architecture:** Designed the data flow from instrument to model input, including protocol selection and one central ingestion point per device.
+
 ### **Working Student – Project Management** | Dometa, Dresden
 *Oct 2024 – Present*
 
